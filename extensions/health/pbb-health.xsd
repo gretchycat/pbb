@@ -4,10 +4,7 @@
            xmlns:pbb="http://pbb.ai/core/v1"
            elementFormDefault="qualified"
            version="1.0">
-
-  <xs:import namespace="http://pbb.ai/core/v1"
-             schemaLocation="../../core/pbb-core.xsd"/>
-
+  <xs:import namespace="http://pbb.ai/core/v1" schemaLocation="../../core/pbb-core.xsd"/>
   <xs:element name="health_profile">
     <xs:complexType>
       <xs:sequence>
@@ -19,21 +16,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:complexType name="ConditionsType">
     <xs:sequence>
       <xs:element name="condition" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="TreatmentsType">
     <xs:sequence>
       <xs:element name="treatment" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="WellnessType">
     <xs:sequence>
       <xs:element name="energy_level" type="xs:string" minOccurs="0"/>
@@ -43,5 +37,4 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
 </xs:schema>

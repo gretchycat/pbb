@@ -8,14 +8,11 @@
   <xs:annotation>
     <xs:documentation>
       PBB Core Schema — Version 1.1
-      Defines the foundational structure for portable, persistent AI personality profiles.
-      This is the root kernel schema for all PBB-based systems.
-      All extensions should import this schema.
-      Wildcards are provided throughout to ensure infinite expandability.
+      Root kernel for persistent personality profiles.
+      Wildcards are provided for infinite extensibility.
     </xs:documentation>
   </xs:annotation>
 
-  <!-- Root element -->
   <xs:element name="personality_profile">
     <xs:complexType>
       <xs:sequence>

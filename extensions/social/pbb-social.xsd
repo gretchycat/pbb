@@ -4,10 +4,7 @@
            xmlns:pbb="http://pbb.ai/core/v1"
            elementFormDefault="qualified"
            version="1.0">
-
-  <xs:import namespace="http://pbb.ai/core/v1"
-             schemaLocation="../../core/pbb-core.xsd"/>
-
+  <xs:import namespace="http://pbb.ai/core/v1" schemaLocation="../../core/pbb-core.xsd"/>
   <xs:element name="social_profile">
     <xs:complexType>
       <xs:sequence>
@@ -18,14 +15,12 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:complexType name="RelationshipsType">
     <xs:sequence>
       <xs:element name="relationship" type="pbb:RelationshipType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="RelationshipType">
     <xs:sequence>
       <xs:element name="type" type="xs:string" minOccurs="0"/>
@@ -35,14 +30,12 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="AffiliationsType">
     <xs:sequence>
       <xs:element name="affiliation" type="pbb:AffiliationType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="AffiliationType">
     <xs:sequence>
       <xs:element name="name" type="xs:string" minOccurs="0"/>
@@ -53,14 +46,12 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="CommunitiesType">
     <xs:sequence>
       <xs:element name="community" type="pbb:CommunityType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="CommunityType">
     <xs:sequence>
       <xs:element name="name" type="xs:string" minOccurs="0"/>
@@ -70,5 +61,4 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
 </xs:schema>

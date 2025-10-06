@@ -4,10 +4,7 @@
            xmlns:pbb="http://pbb.ai/core/v1"
            elementFormDefault="qualified"
            version="1.0">
-
-  <xs:import namespace="http://pbb.ai/core/v1"
-             schemaLocation="../../core/pbb-core.xsd"/>
-
+  <xs:import namespace="http://pbb.ai/core/v1" schemaLocation="../../core/pbb-core.xsd"/>
   <xs:element name="interests">
     <xs:complexType>
       <xs:sequence>
@@ -15,5 +12,4 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
 </xs:schema>

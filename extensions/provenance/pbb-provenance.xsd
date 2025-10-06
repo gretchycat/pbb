@@ -4,10 +4,7 @@
            xmlns:pbb="http://pbb.ai/core/v1"
            elementFormDefault="qualified"
            version="1.0">
-
-  <xs:import namespace="http://pbb.ai/core/v1"
-             schemaLocation="../../core/pbb-core.xsd"/>
-
+  <xs:import namespace="http://pbb.ai/core/v1" schemaLocation="../../core/pbb-core.xsd"/>
   <xs:element name="provenance">
     <xs:complexType>
       <xs:sequence>
@@ -18,7 +15,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:complexType name="OriginType">
     <xs:sequence>
       <xs:element name="system" type="xs:string" minOccurs="0"/>
@@ -28,14 +24,12 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="EditHistoryType">
     <xs:sequence>
       <xs:element name="entry" type="pbb:EditEntryType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="EditEntryType">
     <xs:sequence>
       <xs:element name="timestamp" type="xs:dateTime" minOccurs="0"/>
@@ -46,7 +40,6 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="ValidationType">
     <xs:sequence>
       <xs:element name="method" type="xs:string" minOccurs="0"/>
@@ -56,5 +49,4 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
 </xs:schema>
