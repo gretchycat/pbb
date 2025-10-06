@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://pbb.ai/core/v1"
+           xmlns:pbb="http://pbb.ai/core/v1"
+           elementFormDefault="qualified"
+           version="1.1">
+
+  <xs:annotation>
+    <xs:documentation>
+      PBB Core Schema — Version 1.1
+      Defines the foundational structure for portable, persistent AI personality profiles.
+      This is the root kernel schema for all PBB-based systems. 
+      All extensions should import this schema.
+      Wildcards are provided throughout to ensure infinite expandability.
+    </xs:documentation>
+  </xs:annotation>
+
+  <!-- Root element -->
+  <xs:element name="personality_profile">
+    <xs:annotation>
+      <xs:documentation>
+        The root of every PBB profile. 
+        Includes required metadata and a single optional identity section.
+        Supports unlimited extensions through an open wildcard.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Required: metadata -->
+        <xs:element name="metadata" type="pbb:MetadataType"/>
+
+        <!-- Optional: single identity block -->
+        <xs:element name="identity" type="pbb:IdentityType" minOccurs="0" maxOccurs="1"/>
+
+        <!-- Root-level wildcard for any extensions -->
+        <xs:any namespace="##other" processContents="lax"
+                minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+
+      <!-- Root attributes -->
+      <xs:attribute name="version" type="xs:string" use="required"/>
+      <xs:attribute name="update_policy" type="xs:string" default="incremental"/>
+      <xs:attribute name="persistence" type="xs:string" default="user_defined"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Metadata definition -->
+  <xs:complexType name="MetadataType">
+    <xs:annotation>
+      <xs:documentation>
+        System-level information describing creation, updates, and operational confidence.
+        May contain embedded processing instructions and arbitrary extension tags.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="created" type="xs:date"/>
+      <xs:element name="last_updated" type="xs:date"/>
+      <xs:element name="confidence" type="xs:string" minOccurs="0"/>
+
+      <!-- Wildcard for policies, annotations, or schema extensions -->
+      <xs:any namespace="##other" processContents="lax"
+              minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Identity definition -->
+  <xs:complexType name="IdentityType">
+    <xs:annotation>
+      <xs:documentation>
+        Biographical or contextual identity information for a single individual.
+        All fields are optional for privacy; only one identity block is allowed per profile.
+        Wildcard supports aliases, pronouns, pseudonyms, or other future subfields.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="birthdate" type="xs:date" minOccurs="0"/>
+      <xs:element name="birthplace" type="xs:string" minOccurs="0"/>
+      <xs:element name="location" type="xs:string" minOccurs="0"/>
+      <xs:element name="gender_identity" type="xs:string" minOccurs="0"/>
+      <xs:element name="neurotype" type="xs:string" minOccurs="0"/>
+      <xs:element name="health" type="xs:string" minOccurs="0"/>
+
+      <!-- Wildcard for aliases, handles, or contextual attributes -->
+      <xs:any namespace="##other" processContents="lax"
+              minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

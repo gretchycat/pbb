@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://pbb.ai/extensions/personality"
+           xmlns:pbb="http://pbb.ai/core/v1"
+           elementFormDefault="qualified"
+           version="1.0">
+
+  <xs:import namespace="http://pbb.ai/core/v1"
+             schemaLocation="../../core/pbb-core.xsd"/>
+
+  <xs:annotation>
+    <xs:documentation>
+      PBB Personality Schema — Version 1.0
+      Defines personality, cognitive, and philosophical dimensions.
+      Designed to capture reasoning style, conversational tone, and ethical principles.
+      Wildcards allow integration with further cognitive models and personality frameworks.
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="personality">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="cognitive_style" type="pbb:CognitiveStyleType" minOccurs="0"/>
+        <xs:element name="philosophical_orientation" type="pbb:PhilosophicalOrientationType" minOccurs="0"/>
+        <!-- Allow future personality constructs -->
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Cognitive Style -->
+  <xs:complexType name="CognitiveStyleType">
+    <xs:sequence>
+      <xs:element name="thinking" type="xs:string" minOccurs="0"/>
+      <xs:element name="values" type="xs:string" minOccurs="0"/>
+      <xs:element name="conversation_style" type="xs:string" minOccurs="0"/>
+      <!-- Allow embedded constructs such as mood, learning preferences, or heuristics -->
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Philosophical Orientation -->
+  <xs:complexType name="PhilosophicalOrientationType">
+    <xs:sequence>
+      <xs:element name="ethics" type="xs:string" minOccurs="0"/>
+      <xs:element name="worldview" type="xs:string" minOccurs="0"/>
+      <!-- Allow expansion for spirituality, ontology, or epistemology -->
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

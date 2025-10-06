@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://pbb.ai/extensions/provenance"
+           xmlns:pbb="http://pbb.ai/core/v1"
+           elementFormDefault="qualified"
+           version="1.0">
+
+  <xs:import namespace="http://pbb.ai/core/v1"
+             schemaLocation="../../core/pbb-core.xsd"/>
+
+  <xs:element name="provenance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="origin" type="pbb:OriginType" minOccurs="0"/>
+        <xs:element name="edit_history" type="pbb:EditHistoryType" minOccurs="0"/>
+        <xs:element name="validation" type="pbb:ValidationType" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="OriginType">
+    <xs:sequence>
+      <xs:element name="system" type="xs:string" minOccurs="0"/>
+      <xs:element name="agent" type="xs:string" minOccurs="0"/>
+      <xs:element name="created" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="location" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EditHistoryType">
+    <xs:sequence>
+      <xs:element name="entry" type="pbb:EditEntryType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EditEntryType">
+    <xs:sequence>
+      <xs:element name="timestamp" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="editor" type="xs:string" minOccurs="0"/>
+      <xs:element name="summary" type="xs:string" minOccurs="0"/>
+      <xs:element name="change_type" type="xs:string" minOccurs="0"/>
+      <xs:element name="signature" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ValidationType">
+    <xs:sequence>
+      <xs:element name="method" type="xs:string" minOccurs="0"/>
+      <xs:element name="confidence_score" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="checksum" type="xs:string" minOccurs="0"/>
+      <xs:element name="validated_at" type="xs:dateTime" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

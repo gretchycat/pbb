@@ -1,0 +1,28 @@
+<!-- pbb-interests.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://pbb.ai/extensions/interests"
+           xmlns:pbb="http://pbb.ai/core/v1"
+           elementFormDefault="qualified"
+           version="1.0">
+
+  <xs:import namespace="http://pbb.ai/core/v1"
+             schemaLocation="pbb-core.xsd"/>
+
+  <xs:annotation>
+    <xs:documentation>
+      PBB Interests Schema — defines the <interests> container element. 
+      This acts as a root for specific interest categories such as music, art, writing, or science.
+      Unknown interests are valid due to the wildcard.
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="interests">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Known categories can be declared here or imported later -->
+        <xs:any namespace="##other" processContents="lax"
+                minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
