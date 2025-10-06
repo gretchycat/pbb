@@ -1,1 +1,8 @@
-PBB v1.1-draft — Internet-Draft style notes.
+Internet-Draft                                              Gretchen Maculo
+Intended status: Informational                                 October 6, 2025
+Expires: April 6, 2026
+
+              Portable Behavioral Blueprint (PBB) Specification
+                          Version 1.0 — Draft 0.1
+
+[See README.md for project overview. This file is a text draft.]
