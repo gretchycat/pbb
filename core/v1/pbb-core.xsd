@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://pbb.ai/core/v1"
+           xmlns:pbb="http://pbb.ai/core/v1"
+           elementFormDefault="qualified"
+           version="1.1-draft">
+  <xs:element name="personality_profile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata" type="pbb:MetadataType"/>
+        <xs:element name="identity" type="pbb:IdentityType" minOccurs="0" maxOccurs="1"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="MetadataType">
+    <xs:sequence>
+      <xs:element name="created" type="xs:date"/>
+      <xs:element name="last_updated" type="xs:date"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IdentityType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

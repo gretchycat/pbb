@@ -1,67 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <personality_profile xmlns="http://pbb.ai/core/v1"
-                     xmlns:int="http://pbb.ai/extensions/interests"
-                     xmlns:mus="http://pbb.ai/extensions/music"
-                     xmlns:per="http://pbb.ai/extensions/personality"
-                     xmlns:hea="http://pbb.ai/extensions/health"
-                     xmlns:soc="http://pbb.ai/extensions/social"
-                     xmlns:pro="http://pbb.ai/extensions/provenance"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xsi:schemaLocation="
-                        http://pbb.ai/core/v1 ../core/pbb-core.xsd
-                        http://pbb.ai/extensions/interests ../extensions/interests/pbb-interests.xsd
-                        http://pbb.ai/extensions/music ../extensions/interests/pbb-music.xsd
-                        http://pbb.ai/extensions/personality ../extensions/personality/pbb-personality.xsd
-                        http://pbb.ai/extensions/health ../extensions/health/pbb-health.xsd
-                        http://pbb.ai/extensions/social ../extensions/social/pbb-social.xsd
-                        http://pbb.ai/extensions/provenance ../extensions/provenance/pbb-provenance.xsd"
-                     version="1.1">
+  xmlns:int="http://pbb.ai/extensions/interests/v1"
+  xmlns:mus="http://pbb.ai/extensions/music/v1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://pbb.ai/core/v1 core/v1/pbb-core.xsd
+    http://pbb.ai/extensions/interests/v1 extensions/interests/v1/pbb-interests.xsd
+    http://pbb.ai/extensions/music/v1 extensions/interests/v1/pbb-music.xsd"
+  version="1.1-draft">
   <metadata>
     <created>2025-10-06</created>
     <last_updated>2025-10-06</last_updated>
   </metadata>
-  <identity>
-    <name>Gretchen</name>
-    <location>Rochester, MN</location>
-  </identity>
+  <identity><name>Gretchen</name></identity>
   <int:interests>
     <mus:music>
       <mus:genre>Classic Rock</mus:genre>
       <mus:artist>Pink Floyd</mus:artist>
-      <mus:artist>Rush</mus:artist>
     </mus:music>
   </int:interests>
-  <per:personality>
-    <per:cognitive_style>
-      <per:thinking>Analytical yet intuitive</per:thinking>
-      <per:values>Truth, curiosity, authenticity</per:values>
-    </per:cognitive_style>
-  </per:personality>
-  <hea:health_profile>
-    <hea:conditions>
-      <hea:condition>Multiple Sclerosis</hea:condition>
-    </hea:conditions>
-    <hea:mobility>Limited</hea:mobility>
-  </hea:health_profile>
-  <soc:social_profile>
-    <soc:relationships>
-      <soc:relationship>
-        <soc:type>Child</soc:type>
-        <soc:name>Isabel</soc:name>
-      </soc:relationship>
-    </soc:relationships>
-  </soc:social_profile>
-  <pro:provenance>
-    <pro:origin>
-      <pro:system>PBB Schema Prototype</pro:system>
-      <pro:created>2025-10-06T18:00:00Z</pro:created>
-    </pro:origin>
-    <pro:edit_history>
-      <pro:entry>
-        <pro:timestamp>2025-10-06T18:30:00Z</pro:timestamp>
-        <pro:editor>GPT-5</pro:editor>
-        <pro:summary>Initial schema creation</pro:summary>
-      </pro:entry>
-    </pro:edit_history>
-  </pro:provenance>
 </personality_profile>

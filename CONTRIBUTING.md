@@ -1,0 +1,1 @@
+Contribution guide with namespace and versioning policy.

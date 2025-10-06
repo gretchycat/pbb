@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://pbb.ai/extensions/health/v1"
+           xmlns:pbb="http://pbb.ai/core/v1"
+           elementFormDefault="qualified">
+  <xs:import namespace="http://pbb.ai/core/v1" schemaLocation="../../../core/v1/pbb-core.xsd"/>
+  <xs:element name="health_profile">
+    <xs:complexType><xs:sequence>
+      <xs:element name="conditions" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence></xs:complexType>
+  </xs:element>
+</xs:schema>
